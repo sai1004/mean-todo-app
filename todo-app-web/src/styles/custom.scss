@@ -1,0 +1,85 @@
+@import "./variables";
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0 !important;
+}
+
+p {
+    margin: 0 !important;
+}
+
+a {
+    cursor: pointer !important;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.mat-form-field {
+    width: 100% !important;
+}
+
+mat-toolbar {
+    box-shadow: 0px 2px 2px #00000029;
+}
+
+.snack-error {
+    background-color: red !important;
+    color: white;
+}
+
+.snack-success {
+    background-color: green !important;
+    color: white;
+}
+
+.mat-simple-snackbar-action {
+    color: white !important;
+}
+
+.max__width {
+    max-width: 1550px;
+}
+
+.mat-spacer {
+    flex: 1 1 auto;
+}
+
+// /* Let's get this party started */
+// ::-webkit-scrollbar {
+//     width: 12px;
+//     z-index: -1;
+// }
+
+// /* Track */
+// ::-webkit-scrollbar-track {
+//     box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+//     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+// }
+
+// /* Handle */
+// ::-webkit-scrollbar-thumb {
+//     // -webkit-border-radius: 10px;
+//     box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+//     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+// }
+// ::-webkit-scrollbar-thumb:window-inactive {
+//     background: #0baba1;
+// }
+
+.container {
+    max-width: 1450px !important;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mat-dialog-container {
+    padding: 0px !important;
+    overflow: none;
+    height: 300px !important;
+    width: 400px !important;
+}

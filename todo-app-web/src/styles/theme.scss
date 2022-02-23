@@ -1,0 +1,26 @@
+// @import "~source-sans-pro/source-sans-pro.css";
+@import "~material-design-icons/iconfont/material-icons.css";
+@import "~@angular/material/theming";
+// @import "~font-awesome/css/font-awesome.min.css";
+@include mat-core();
+
+$primary: mat-palette($mat-pink, 700, 100, 900);
+$accent: mat-palette($mat-amber, 300, 300, 300);
+$warn: mat-palette($mat-red, 700, 500, 900);
+$theme: mat-light-theme($primary, $accent, $warn);
+@include angular-material-theme($theme);
+
+.dark-theme {
+    color: $light-primary-text;
+    $dark-primary: mat-palette($mat-green, 700, 100, 900);
+    $dark-accent: mat-palette($mat-blue, 700, 100, 900);
+    $dark-warn: mat-palette($mat-red, 700, 500, 900);
+    $dark-theme: mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
+    @include angular-material-theme($dark-theme);
+}
+
+$custom-typography: mat-typography-config(
+    $font-family: "Roboto, Arial , sans-serif",
+);
+
+@include angular-material-typography($custom-typography);

@@ -1,0 +1,74 @@
+<ng-template [ngIf]="todoList && type == 'all'">
+    <div fxLayout="row wrap" fxLayoutAlign="start center">
+        <ng-container *ngFor="let list of todoList; let i = index">
+            <div fxFlex="20" fxFlex.lt-lg="25" fxFlex.lt-md="50" fxFlex.lt-sm="100">
+                <div class="task__card">
+                    <mat-toolbar color="primary">
+                        <h1>{{ list.title }}</h1>
+                    </mat-toolbar>
+                    <div class="task__card-body">
+                        <p>{{ list.description }}</p>
+                    </div>
+                    <div class="action__items">
+                        <button mat-icon-button>
+                            <mat-icon (click)="openDialog(i)">edit</mat-icon>
+                        </button>
+                        <button mat-icon-button (click)="onStatusComplete(i)">
+                            <mat-icon>done</mat-icon>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</ng-template>
+
+<ng-template [ngIf]="todoList && type == 'active'">
+    <div fxLayout="row wrap" fxLayoutAlign="start center">
+        <ng-container *ngFor="let list of todoList; let i = index">
+            <div fxFlex="20" fxFlex.lt-lg="25" fxFlex.lt-md="50" fxFlex.lt-sm="100" *ngIf="list.status == 'active'">
+                <div class="task__card">
+                    <mat-toolbar color="primary">
+                        <h1>{{ list.title }}</h1>
+                    </mat-toolbar>
+                    <div class="task__card-body">
+                        <p>{{ list.description }}</p>
+                    </div>
+                    <div class="action__items">
+                        <button mat-icon-button>
+                            <mat-icon (click)="openDialog(i)">edit</mat-icon>
+                        </button>
+                        <button mat-icon-button (click)="onStatusComplete(i)">
+                            <mat-icon>done</mat-icon>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</ng-template>
+
+<ng-template [ngIf]="todoList && type == 'completed'">
+    <div fxLayout="row wrap" fxLayoutAlign="start center">
+        <ng-container *ngFor="let list of todoList; let i = index">
+            <div fxFlex="20" fxFlex.lt-lg="25" fxFlex.lt-md="50" fxFlex.lt-sm="100" *ngIf="list.status == 'completed'">
+                <div class="task__card">
+                    <mat-toolbar color="primary">
+                        <h1>
+                            <del>{{ list.title }}</del>
+                        </h1>
+                    </mat-toolbar>
+                    <div class="task__card-body">
+                        <p>{{ list.description }}</p>
+                    </div>
+
+                    <div class="action__items">
+                        <button mat-icon-button>
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</ng-template>

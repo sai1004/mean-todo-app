@@ -1,0 +1,15 @@
+<mat-tab-group>
+    <mat-tab label="All">
+        <section>
+            <app-tasks-list [todoList]="todoList" type="all"></app-tasks-list>
+        </section>
+    </mat-tab>
+    <mat-tab label="Active">
+        <section>
+            <app-tasks-list [todoList]="todoList" type="active"></app-tasks-list></section
+    ></mat-tab>
+    <mat-tab label="Completed">
+        <section>
+            <app-tasks-list [todoList]="todoList" type="completed"></app-tasks-list></section
+    ></mat-tab>
+</mat-tab-group>

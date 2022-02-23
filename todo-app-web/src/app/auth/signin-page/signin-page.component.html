@@ -1,0 +1,77 @@
+<section class="bg__img">
+    <div fxLayoutAlign="center center">
+        <div>
+            <div class="content">
+                <h1>Todo App</h1>
+            </div>
+            <mat-card>
+                <div>
+                    <h2>Sginin To Your Account</h2>
+                </div>
+                <form (ngSubmit)="onSubmit()" novalidate autocomplete="off">
+                    <div>
+                        <mat-form-field>
+                            <mat-label>Email</mat-label>
+                            <mat-icon matSuffix>mail</mat-icon>
+                            <input
+                                matInput
+                                placeholder="Enter your email"
+                                [(ngModel)]="auth.email"
+                                name="email"
+                                #auth_email="ngModel"
+                                minlength="3"
+                                maxlength="30"
+                                required
+                            />
+                            <mat-hint color="warn" *ngIf="auth_email.touched && auth_email.errors">
+                                Email Required
+                            </mat-hint>
+                        </mat-form-field>
+                    </div>
+
+                    <div>
+                        <mat-form-field>
+                            <mat-label>Password</mat-label>
+                            <input
+                                matInput
+                                placeholder="Enter your password"
+                                [type]="hide ? 'password' : 'text'"
+                                name="auth_password"
+                                [(ngModel)]="auth.password"
+                                #auth_password="ngModel"
+                                title="Must contain at least one number and one 
+                                uppercase and lowercase letter, and at least 8 or more characters"
+                                minlength="3"
+                                maxlength="16"
+                                required
+                            />
+                            <mat-icon matSuffix (click)="hide = !hide" style="cursor: pointer">{{
+                                hide ? "lock" : "lock_open"
+                            }}</mat-icon>
+                            <mat-hint *ngIf="auth_password.touched && auth_password.errors">
+                                Password Required
+                            </mat-hint>
+                        </mat-form-field>
+                    </div>
+
+                    <div>
+                        <button mat-raised-button color="accent" style="width: 100%" type="submit">SIGNIN</button>
+                    </div>
+
+                    <div fxLayoutAlign="space-between center">
+                        <div>
+                            <mat-checkbox class="example-margin">Remember me</mat-checkbox>
+                        </div>
+                        <div>
+                            <button mat-button color="primary">Forgot Password ?</button>
+                        </div>
+                    </div>
+
+                    <div Align="center">
+                        <button mat-button color="primary">Create An Account</button>
+                    </div>
+                </form>
+            </mat-card>
+        </div>
+    </div>
+</section>

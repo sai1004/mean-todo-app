@@ -1,0 +1,25 @@
+<mat-toolbar color="primary">
+    <h1>Create New Task</h1>
+    <span class="mat-spacer"></span>
+    <button mat-mini-fab color="accent" mat-dialog-close>
+        <mat-icon>close</mat-icon>
+    </button>
+</mat-toolbar>
+<section>
+    <form #form="ngForm" novalidate autocomplete="off" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="legacy">
+            <mat-label>Title</mat-label>
+            <input matInput name="title" [(ngModel)]="todoItem.title" placeholder="Title" required />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Description</mat-label>
+            <input matInput name="description" [(ngModel)]="todoItem.description" placeholder="Description" required />
+        </mat-form-field>
+        <div fxLayout="row wrap" fxLayoutAlign="space-between center">
+            <button mat-raised-button color="warn" mat-dialog-close>Cancel</button>
+            <button mat-raised-button color="accent" type="submit" mat-dialog-close [disabled]="form.invalid">
+                Create
+            </button>
+        </div>
+    </form>
+</section>
