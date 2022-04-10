@@ -9,38 +9,24 @@ import { AppService } from './services/app.service';
 import { AppInterceptor } from './services/app.interceptor';
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MaterialModule,
-    FlexLayoutModule,
-    HttpClientModule,
-  ],
-  exports: [
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MaterialModule,
-    FlexLayoutModule,
-    HttpClientModule,
-  ],
-  providers: [],
+    declarations: [],
+    imports: [CommonModule, FormsModule, ReactiveFormsModule, MaterialModule, FlexLayoutModule, HttpClientModule],
+    exports: [CommonModule, FormsModule, ReactiveFormsModule, MaterialModule, FlexLayoutModule, HttpClientModule],
+    providers: [],
 })
 export class SharedModule {
-  static forRoot(): ModuleWithProviders<NgModule> {
-    return {
-      ngModule: SharedModule,
-      providers: [
-        HttpService,
-        AppService,
-        {
-          provide: HTTP_INTERCEPTORS,
-          useClass: AppInterceptor,
-          multi: true,
-        },
-      ],
-    };
-  }
+    static forRoot(): ModuleWithProviders<NgModule> {
+        return {
+            ngModule: SharedModule,
+            providers: [
+                HttpService,
+                AppService,
+                {
+                    provide: HTTP_INTERCEPTORS,
+                    useClass: AppInterceptor,
+                    multi: true,
+                },
+            ],
+        };
+    }
 }
