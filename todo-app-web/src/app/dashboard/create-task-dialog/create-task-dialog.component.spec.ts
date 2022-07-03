@@ -84,4 +84,11 @@ fdescribe('CreateTaskDialogComponent', () => {
         component.loadTodoItem('21312SDFDSDF3123');
         expect(_dashboardServiceSpy.getTodoItemtById).toHaveBeenCalled();
     });
+
+    it('should call createTask() Method ', async () => {
+        let data: any;
+        dashboardService.saveTodoItem(todoitem).subscribe((response) => {
+            data = response;
+        });
+    });
 });
