@@ -13,7 +13,6 @@ export class AuthGuardService {
             this.router.navigate(['auth/signin']);
             return false;
         }
-        // this.router.navigate(['dashboard/dashboard']);
         return true;
     }
 
