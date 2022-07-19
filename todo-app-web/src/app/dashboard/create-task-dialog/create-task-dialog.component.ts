@@ -42,6 +42,7 @@ export class CreateTaskDialogComponent implements OnInit, OnDestroy {
         if (item.profileId) {
             this._dashboardService.saveTodoItem(item).subscribe((response: any) => {
                 if (response) {
+                    console.log('Response');
                 }
             });
         }
