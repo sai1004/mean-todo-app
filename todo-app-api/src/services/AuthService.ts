@@ -46,6 +46,20 @@ export class AuthService {
         }
     }
 
+    async refreshToken(inputData: any) {
+        try {
+            if (!inputData) throw { message: "Invalid Data" };
+            var responseData: any = {};
+            let jwtData: any = App.DecodeJWT(inputData.jwt);
+            if (!jwtData) throw { message: "Invalid JWT" };
+            responseData.identity = jwtData.identity;
+            responseData.access_token = App.EncodeJWT(responseData);
+            return responseData;
+        } catch (error) {
+            throw error;
+        }
+    }
+
     async resetPassword() {
         try {
         } catch (error) {

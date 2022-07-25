@@ -46,6 +46,21 @@ export class AuthController {
             } catch (error) {}
         });
 
+        this.router.post("/token", async (request: any, response: any) => {
+            try {
+                let reqData: any = request.body;
+                let result: any = null;
+                if (reqData) {
+                    result = await this.authService.refreshToken(reqData);
+                } else {
+                    throw { message: "Invalid Data" };
+                }
+                response.send({ status: 1, data: result });
+            } catch (error) {
+                response.send({ status: 0, error: error });
+            }
+        });
+
         return this.router;
     }
 }
