@@ -10,6 +10,7 @@ import jwt_decode from 'jwt-decode';
 })
 export class AuthService {
     private auth_url: string = '/auth';
+    private refreshTokenTimeout: any;
 
     constructor(
         private router: Router,
@@ -39,14 +40,39 @@ export class AuthService {
             sessionStorage.setItem('sessionUser', JSON.stringify(user));
             sessionStorage.setItem('web-jwt-key', JSON.stringify(data['access_token']));
             this._apexService.updateSessionUser(JSON.stringify(user));
+            // this.startRefreshTokenTimer();
             this.router.navigateByUrl('/dashboard/dashboard');
             this._appService.showMessage('Signin Successful', false);
         }
     }
 
+    // refreshToken() {
+    //     return this.http.post<any>(`${environment.apiUrl}/users/refresh-token`, {}, { withCredentials: true })
+    //         .pipe(map((user) => {
+    //             this.userSubject.next(user);
+    //             this.startRefreshTokenTimer();
+    //             return user;
+    //         }));
+    // }
+
+    // private startRefreshTokenTimer() {
+    //     // parse json object from base64 encoded jwt token
+    //     const jwtToken = JSON.parse(atob(this.userValue.jwtToken.split('.')[1]));
+
+    //     // set a timeout to refresh the token a minute before it expires
+    //     const expires = new Date(jwtToken.exp * 1000);
+    //     const timeout = expires.getTime() - Date.now() - (60 * 1000);
+    //     this.refreshTokenTimeout = setTimeout(() => this.refreshToken().subscribe(), timeout);
+    // }
+
+    // private stopRefreshTokenTimer() {
+    //     clearTimeout(this.refreshTokenTimeout);
+    // }
+
     signOut(): void {
         sessionStorage.clear();
         this._apexService.updateSessionUser(null);
+        // this.stopRefreshTokenTimer();
         this.router.navigateByUrl('/auth/signin');
     }
 }
